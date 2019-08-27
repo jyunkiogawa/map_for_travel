@@ -1,0 +1,53 @@
+<div clas="map-wrapper">
+<style>
+#target{
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+</div>
+<div id="target"></div>
+<script
+  src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyD_ZGChEqenNrwFjv3MMFb1ZY5iCG1AcyQ&callback=initMap" async defer>
+</script>
+<script>
+  function initMap() {
+    
+    'use strict';
+    var target = document.getElementById('target');
+    var taiwan = { lat: 25.051481, lng: 121.536468 };
+    
+    var map = new google.maps.Map(target, {
+      center: taiwan,
+      zoom: 14
+      
+    });
+    
+    
+    <% @shops.each do |shop| %>
+      (function(){
+        var contentString = 
+            '<div class="infowindow-wrapper"S>'+
+              '<h1><%= shop.name %></h1>'+
+              '<%= image_tag shop.image.to_s %>'+
+              '<p><%= shop.description %></p>'+
+              '<%= link_to '詳細はこちら', shop_path(id: shop.id) %>'+
+            '</div>';
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position:{lat: <%= shop.latitude %>, lng: <%= shop.longitude %>},
+            map: map,
+            title: contentString 
+            // icon: 
+        });
+
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+       })();
+      <% end %>
+  }
+</script>

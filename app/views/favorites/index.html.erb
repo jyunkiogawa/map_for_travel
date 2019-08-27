@@ -1,0 +1,20 @@
+<div class="shop-index-wrapper">
+  <div class="container">
+    <% @favorite_shops.each do |shop| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="shop-index-single">
+            <h2 class="shop-author">
+              <%= shop.name %>
+            </h2>
+            <%= image_tag shop.image.url %>
+            <p class="shop-text">
+              <%= shop.description %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate @favorite_shops %>
+  </div>
+</div>
