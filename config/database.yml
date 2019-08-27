@@ -47,8 +47,10 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
   <<: *default
-  database: map_for_travel_production
-  username: map_for_travel
-  password: <%= ENV['map_for_travel_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
