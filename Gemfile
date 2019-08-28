@@ -84,3 +84,5 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 group :production do
   gem "pg"
 end
+
+gem 'fog-aws'
