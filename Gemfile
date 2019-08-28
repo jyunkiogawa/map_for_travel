@@ -86,3 +86,5 @@ group :production do
 end
 
 gem 'fog-aws'
+
+gem 'dotenv-rails', require: 'dotenv/rails-now'
