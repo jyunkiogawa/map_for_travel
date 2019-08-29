@@ -27,3 +27,6 @@
 /config/master.key
 
 /.env
+
+# Ignore Spring files.
+/spring/*.pid
