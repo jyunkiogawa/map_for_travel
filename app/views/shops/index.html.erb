@@ -8,7 +8,7 @@
 </div>
 <div id="target"></div>
 <script
-  src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=ENV['GOOGLE_API_KEY']&callback=initMap" async defer>
+  src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer>
 </script>
 <script>
   function initMap() {
