@@ -12,7 +12,7 @@ class ShopsController < ApplicationController
     #binding.pry
     if @shop.save
       #binding.pry
-      redirect_to shops_path, success: '投稿に成功しました'
+      redirect_to kinds_path, success: '投稿に成功しました'
     else
       #binding.pry
       flash.now[:danger] = "投稿に失敗しました"
