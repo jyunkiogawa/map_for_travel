@@ -14,11 +14,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       redirect_to kinds_index_path, success: '変更が完了しました'
     else
