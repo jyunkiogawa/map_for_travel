@@ -19,9 +19,7 @@ Rails.application.routes.draw do
   resources :shops do 
     resources :comments, only: [:create, :destroy]
   end
-  
 
-  
   resources :users
   
   get    '/login',   to: 'sessions#new'
@@ -31,5 +29,4 @@ Rails.application.routes.draw do
   get 'favorites/index'
   post '/favorites', to: 'favorites#create'
   delete '/favorites', to: 'favorites#destroy'
-
 end

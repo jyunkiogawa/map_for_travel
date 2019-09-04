@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   def create
      shop = Shop.find(params[:shop_id])
-     #binding.pry
      @comment = shop.comments.build(comment_params)
      @comment.user_id = current_user.id
      if @comment.save
