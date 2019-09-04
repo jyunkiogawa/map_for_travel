@@ -11,6 +11,6 @@ class Shop < ApplicationRecord
   belongs_to :kind
   has_many :comments, dependent: :destroy
   
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: 'user'
 end
