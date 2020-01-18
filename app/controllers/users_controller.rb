@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    bindig.pry
   end
   
   def update
